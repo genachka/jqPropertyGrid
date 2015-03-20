@@ -154,8 +154,12 @@
 
 		// If label (for read-only)
 		} else if (type === 'label') {
-               		valueHTML = '<label for="' + elemId + '">' + value + '</label>';
-            	}
+        		if (meta.description !== undefined) {
+                		valueHTML = '<label for="' + elemId + '" title="' + meta.description + '">' + value + '</label>';
+            		} else {
+                		valueHTML = '<label for="' + elemId + '">' + value + '</label>';
+            		}
+            	
             
 		// Default is textbox
 		} else {
