@@ -152,6 +152,15 @@
 			if (postCreateInitFuncs) { postCreateInitFuncs.push(initColorPicker(elemId, value, meta.options)); }
 			if (getValueFuncs) { getValueFuncs[name] = function() {return $('#'+elemId).spectrum('get').toHexString();}; }
 
+		// If label (for read-only)
+		} else if (type === 'label') {
+        		if (meta.description !== undefined) {
+                		valueHTML = '<label for="' + elemId + '" title="' + meta.description + '">' + value + '</label>';
+            		} else {
+                		valueHTML = '<label for="' + elemId + '">' + value + '</label>';
+            		}
+            	
+            
 		// Default is textbox
 		} else {
 			valueHTML = '<input type="text" id="' + elemId + '" value="' + value + '"</input>';
